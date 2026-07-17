@@ -1,4 +1,4 @@
-﻿/*==========================================================
+/*==========================================================
   UNIVERSAL DESIGN FOR LEARNING (UDL)
   Interactive Quiz Website
   script.js
@@ -32,6 +32,25 @@ const correctAnswers = document.getElementById("correctAnswers");
 const wrongAnswers = document.getElementById("wrongAnswers");
 const accuracy = document.getElementById("accuracy");
 const performanceBadge = document.getElementById("performanceBadge");
+
+/*==========================================================
+EXAMINEE INFORMATION
+==========================================================*/
+
+const studentName = document.getElementById("studentName");
+const rollNumber = document.getElementById("rollNumber");
+const registrationNumber = document.getElementById("registrationNumber");
+const department = document.getElementById("department");
+const semester = document.getElementById("semester");
+const section = document.getElementById("section");
+
+let studentInfo = {};
+
+
+
+
+
+
 /*==========================================================
 ACCESSIBILITY
 ==========================================================*/
@@ -137,8 +156,71 @@ if (document.getElementById("informationScreen").classList.contains("hidden")) {
     alert("Please click 'Start Quiz' first to proceed!");
     return;
 }
-        
+
+
+        if (
+            studentName.value.trim() === "" ||
+            rollNumber.value.trim() === "" ||
+            registrationNumber.value.trim() === "" ||
+            department.value.trim() === "" ||
+            semester.value.trim() === "" ||
+            section.value.trim() === ""
+        ) {
+            alert("Please fill all the information before starting the quiz.");
+            return;
+        }
+
+        studentInfo = {
+
+            name: studentName.value.trim(),
+
+            roll: rollNumber.value.trim(),
+
+            registration: registrationNumber.value.trim(),
+
+            department: department.value.trim(),
+
+            semester: semester.value.trim(),
+
+            section: section.value.trim()
+
+        };
+
+        informationScreen.classList.add("hidden");
+        quizScreen.classList.remove("hidden");
+
+
+
+
+
+/*==========================================================
+VALIDATE EXAMINEE INFORMATION
+==========================================================*/
+
+if (
+    studentName.value.trim() === "" ||
+    rollNumber.value.trim() === "" ||
+    registrationNumber.value.trim() === "" ||
+    department.value.trim() === "" ||
+    semester.value.trim() === "" ||
+    section.value.trim() === ""
+) {
+    alert("Please fill in all the information before starting the quiz.");
+    return;
+}
+
+
+
+
+
+
+
+
+
        
+
+
+
  informationScreen.classList.add("hidden");
         quizScreen.classList.remove("hidden");
         currentQuestion = 0;
@@ -572,6 +654,24 @@ SHOW RESULTS
 function showResults() {
 quizScreen.classList.add("hidden");
 resultScreen.classList.remove("hidden");
+
+/*==========================================================
+DISPLAY EXAMINEE INFORMATION
+==========================================================*/
+
+document.getElementById("displayName").textContent = studentInfo.name;
+
+document.getElementById("displayRoll").textContent = studentInfo.roll;
+
+document.getElementById("displayRegistration").textContent = studentInfo.registration;
+
+document.getElementById("displayDepartment").textContent = studentInfo.department;
+
+document.getElementById("displaySemester").textContent = studentInfo.semester;
+
+document.getElementById("displaySection").textContent = studentInfo.section;
+
+
 var total = quizQuestions.length;
 var wrong = total - score;
 var percent = Math.round((score / total) * 100);
@@ -697,6 +797,11 @@ window.onload = function () {
     explanationBox.style.display = "none";
 
 };
+
+
+
+
+   ﻿
 
 
 
