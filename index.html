@@ -322,9 +322,52 @@
 
         </div>
 
-        
-<button id="beginQuizBtn" class="hidden" >
-I Understand & Begin Quiz
+<!-- =============================
+     EXAMINEE INFORMATION
+============================= -->
+
+<div class="info-box">
+
+    <h3>Examinee Information</h3>
+
+    <div class="student-form">
+
+        <div class="form-row">
+            <label for="studentName">Full Name :</label>
+            <input type="text" id="studentName" required>
+        </div>
+
+        <div class="form-row">
+            <label for="rollNumber">Roll Number :</label>
+            <input type="text" id="rollNumber" required>
+        </div>
+
+        <div class="form-row">
+            <label for="registrationNumber">Registration Number :</label>
+            <input type="text" id="registrationNumber" required>
+        </div>
+
+        <div class="form-row">
+            <label for="department">Department :</label>
+            <input type="text" id="department" required>
+        </div>
+
+        <div class="form-row">
+            <label for="semester">Semester :</label>
+            <input type="text" id="semester" required>
+        </div>
+
+        <div class="form-row">
+            <label for="section">Section :</label>
+            <input type="text" id="section" required>
+        </div>
+
+    </div>
+
+</div>
+
+<button id="beginQuizBtn" class="hidden">
+    I Understand & Begin Quiz
 </button>
 
 
@@ -332,10 +375,6 @@ I Understand & Begin Quiz
 
 
 
- 
-   </div>
-
-</section>
 
 <!-- ===========================================================
      QUIZ SECTION
@@ -435,7 +474,62 @@ I Understand & Begin Quiz
 
         </p>
 
-        <!-- ==========================
+<!-- ==========================
+     EXAMINEE INFORMATION
+========================== -->
+
+<div id="studentDetails" class="student-details">
+
+    <h3>
+
+        Examinee Information
+
+    </h3>
+
+    <p>
+
+        <strong>Full Name:</strong>
+        <span id="displayName"></span>
+
+    </p>
+
+    <p>
+
+        <strong>Roll Number:</strong>
+        <span id="displayRoll"></span>
+
+    </p>
+
+    <p>
+
+        <strong>Registration Number:</strong>
+        <span id="displayRegistration"></span>
+
+    </p>
+
+    <p>
+
+        <strong>Department:</strong>
+        <span id="displayDepartment"></span>
+
+    </p>
+
+    <p>
+
+        <strong>Semester:</strong>
+        <span id="displaySemester"></span>
+
+    </p>
+
+    <p>
+
+        <strong>Section:</strong>
+        <span id="displaySection"></span>
+
+    </p>
+
+</div>
+ <!-- ==========================
              SCORE CIRCLE
         =========================== -->
 
