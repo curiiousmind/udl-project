@@ -1,0 +1,606 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ===========================================================
+         UNIVERSAL DESIGN FOR LEARNING (UDL)
+         Interactive Quiz Website
+         Final Version 2.0
+         =========================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+   <link rel="icon" type="image/png" href="graduation-cap.png">
+
+ <title>Universal Design for Learning | Interactive Quiz</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- ===========================================================
+     ACCESSIBILITY HEADER
+=========================================================== -->
+
+<header class="top-header">
+
+    <div class="website-title">
+
+        <h2>
+
+            Universal Design for Learning
+
+        </h2>
+
+    </div>
+
+    <div class="accessibility-panel">
+
+        <button id="accessibilityToggle"
+                aria-label="Accessibility Settings">
+
+            Accessibility Options
+
+        </button>
+
+        <div id="accessibilityMenu"
+             class="hidden">
+
+            <button id="darkModeBtn">
+
+                Dark Mode
+
+            </button>
+
+            <button id="contrastBtn">
+
+                High Contrast
+
+            </button>
+
+            <button id="increaseFont">
+
+                A+
+
+            </button>
+
+            <button id="decreaseFont">
+
+                A-
+
+            </button>
+
+            <button id="readableFontBtn">
+
+                Readable Font
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ===========================================================
+     MAIN CONTAINER
+=========================================================== -->
+
+<main>
+
+<!-- ===========================================================
+     WELCOME SCREEN
+=========================================================== -->
+
+<section id="welcomeScreen">
+
+    <div class="hero-card">
+
+        <h1>
+
+            UNIVERSAL DESIGN FOR LEARNING
+
+        </h1>
+
+        <h2>
+
+            Interactive Quiz
+
+        </h2>
+
+        <p class="tagline">
+
+            Accessible Learning for Everyone
+
+        </p>
+
+        <div class="divider"></div>
+
+        <p class="hero-text">
+
+            Learn inclusively.<br>
+
+            Assess confidently.<br>
+
+            Grow together.
+
+        </p>
+
+       
+<div class="divider"></div>
+
+<button id="startButton">
+
+    Start Quiz →
+
+</button>
+
+
+
+
+</div>
+
+</section>
+
+<!-- ===========================================================
+     INFORMATION SCREEN
+=========================================================== -->
+
+<section id="informationScreen" class="hidden">
+
+    <div class="information-card">
+
+        <h2>
+
+            Welcome!
+
+        </h2>
+
+        <p>
+
+            Thank you for choosing to participate in this interactive quiz.
+
+            This quiz has been designed using Universal Design for Learning
+            (UDL) principles to provide an inclusive, engaging and accessible
+            learning experience for every learner.
+
+        </p>
+
+        <!-- =============================
+             QUIZ INFORMATION
+        ============================== -->
+
+        <div class="info-box">
+
+            <h3>
+
+                Quiz Information
+
+            </h3>
+
+            <ul>
+
+                <li>
+
+                    Total Questions :
+                    <strong>20</strong>
+
+                </li>
+
+                <li>
+
+                    Question Type :
+                    Multiple Choice
+
+                </li>
+
+                <li>
+
+                    Navigation :
+                    Previous & Next Available
+
+                </li>
+
+                <li>
+
+                    Result :
+                    Displayed Immediately After Completion
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- =============================
+             ACCESSIBILITY FEATURES
+        ============================== -->
+
+        <div class="info-box">
+
+            <h3>
+
+                Accessibility Features
+
+            </h3>
+
+            <ul>
+
+                <li>
+
+                    Dark Mode
+
+                </li>
+
+                <li>
+
+                    High Contrast Mode
+
+                </li>
+
+                <li>
+
+                    Increase Font Size
+
+                </li>
+
+                <li>
+
+                    Decrease Font Size
+
+                </li>
+
+                <li>
+
+                    Readable Font
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- =============================
+             INSTRUCTIONS
+        ============================== -->
+
+        <div class="info-box">
+
+            <h3>
+
+                Instructions
+
+            </h3>
+
+            <ul>
+
+                <li>
+
+                    Read every question carefully before answering.
+
+                </li>
+
+                <li>
+
+                    Select the most appropriate answer.
+
+                </li>
+
+                <li>
+
+                    You may return to previous questions at any time.
+
+                </li>
+
+                <li>
+
+                    Review your answers before submitting.
+
+                </li>
+
+                <li>
+
+                    Your final score will be displayed after the quiz.
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        
+<button id="beginQuizBtn" class="hidden" >
+I Understand & Begin Quiz
+</button>
+
+
+
+
+
+
+ 
+   </div>
+
+</section>
+
+<!-- ===========================================================
+     QUIZ SECTION
+=========================================================== -->
+
+<section id="quizScreen"
+         class="hidden">
+
+    <div class="quiz-card">
+
+        <!-- Quiz Header -->
+
+        <div class="quiz-header">
+
+            <h2>
+
+                Interactive Quiz
+
+            </h2>
+
+            <p id="questionCounter">
+
+                Question 1 of 20
+
+            </p>
+
+            <p id="liveScore">
+
+                Score: 0
+
+            </p>
+
+        </div>
+
+        <!-- Progress Bar -->
+
+        <div class="progress-container">
+
+            <div id="progressBar"></div>
+
+        </div>
+
+        <!-- Question -->
+
+        <div id="questionBox">
+
+            Loading Question...
+
+        </div>
+
+        <!-- Answer Options -->
+
+        <div id="answerButtons">
+
+            <!-- JavaScript will generate options here -->
+
+        </div>
+
+        <!-- Navigation Buttons -->
+
+        <div class="navigation-buttons">
+
+            <button id="previousBtn">
+
+                ← Previous
+
+            </button>
+
+            <button id="nextBtn">
+
+                Next →
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===========================================================
+     RESULTS SCREEN
+=========================================================== -->
+
+<section id="resultScreen" class="hidden">
+
+    <div class="result-card">
+
+        <h1>
+
+            Quiz summary
+
+        </h1>
+
+        <p class="result-message">
+
+            Thank you for completing the quiz.
+
+        </p>
+
+        <!-- ==========================
+             SCORE CIRCLE
+        =========================== -->
+
+        <div class="score-circle">
+
+            <div class="score-content">
+
+                <h2 id="finalScore">
+
+                    0%
+
+                </h2>
+
+                <p>
+
+                    Final Score
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ==========================
+             PERFORMANCE BADGE
+        =========================== -->
+
+        <div id="performanceBadge"
+             class="performance-badge">
+
+            Excellent
+
+        </div>
+
+        <!-- ==========================
+             RESULT STATISTICS
+        =========================== -->
+
+        <div class="statistics-grid">
+
+            <div class="stat-card">
+
+                <h3>
+
+                    Total Questions
+
+                </h3>
+
+                <p id="totalQuestions">
+
+                    20
+
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>
+
+                    Correct Answers
+
+                </h3>
+
+                <p id="correctAnswers">
+
+                    0
+
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>
+
+                    Incorrect Answers
+
+                </h3>
+
+                <p id="wrongAnswers">
+
+                    0
+
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>
+
+                    Accuracy
+
+                </h3>
+
+                <p id="accuracy">
+
+                    0%
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ==========================
+             ACTION BUTTONS
+        =========================== -->
+
+        <div class="result-buttons">
+
+            <button id="restartBtn">
+
+                Restart Quiz
+
+            </button>
+
+          
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- ===========================================================
+     FOOTER
+=========================================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h3>
+
+            Universal Design for Learning
+
+        </h3>
+
+        <p>
+
+            Interactive Quiz
+
+        </p>
+
+        <p>
+
+            Accessible Learning for Everyone
+
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- ===========================================================
+     JAVASCRIPT
+=========================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
